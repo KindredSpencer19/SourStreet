@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This tag tells mobile browsers to scale your page to fit phone screens perfectly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My lemonAID Campaign</title>
+    <link rel="stylesheet" href="style.css">
+ <style>
+    /* Smooth glassmorphism styles */
+    .glass {
+      background: rgba(30, 30, 30, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-carbon-950 text-gray-100 min-h-screen flex flex-col justify-between selection:bg-lemon selection:text-carbon-950 font-sans antialiased">
+
+  <!-- Background Decorative Blurs (Pure, Responsive CSS using Viewport Units) -->
+  <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; pointer-events: none; z-index: 0;">
+    <div style="position: absolute; top: -10vh; left: -15vw; width: 60vw; height: 50vh; background: rgba(234, 179, 8, 0.12); border-radius: 50%; filter: blur(100px);"></div>
+    <div style="position: absolute; bottom: 15vh; right: -20vw; width: 65vw; height: 55vh; background: rgba(234, 179, 8, 0.07); border-radius: 50%; filter: blur(120px);"></div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="relative z-10 w-full max-w-md mx-auto px-6 pt-12 pb-24 flex-grow flex flex-col items-center">
+    
+    <!-- Profile Section -->
+    <div class="flex flex-col items-center text-center mb-8">
+      <!-- Profile Picture Placeholder with Campaign Theme -->
+      <img alt="SourStreetLogo" src="C:\Users\ghast\Downloads\LEMONAID_Logo_V01_20260611_KS.png" width="250" height="250" />
+
+        </div>
+        <!-- Badge -->
+        <span class="absolute bottom-0 right-0 bg-lemon text-carbon-950 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow">Intern</span>
+      </div>
+
+      <!-- Campaign Heading -->
+      <h1 class="text-3xl font-black tracking-tight text-white mb-1">
+        Sour<span class="text-lemon">Street</span>
+      </h1>
+      <p class="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
+        By Black Lemonade
+      </p>
+
+      <!-- Two-Sentence Community Cause Description -->
+      <p class="text-sm text-gray-300 leading-relaxed max-w-sm px-2">
+     Framing sour days into sweet change for our neighbors in need!
+      </p>
+    </div>
+
+    <!-- Donation Section -->
+    <div class="donation-layout w-full mb-8">
+      <div class="w-full space-y-4 donation-card-column">
+        <div class="w-full glass rounded-3xl p-5 border border-gray-800">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-lemon">Support the mission</p>
+              <h2 class="text-xl font-black text-white">Choose a donation</h2>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
+              <span class="theme-toggle__icon">🌙</span>
+              <span id="theme-label">Dark</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 mb-4">
+            <button class="amount-option active" data-amount="75" type="button">
+              <span class="text-xl font-black">$75</span>
+              <span class="text-xs uppercase tracking-wider">Sponsor</span>
+            </button>
+            <button class="amount-option" data-amount="35" type="button">
+              <span class="text-xl font-black">$35</span>
+              <span class="text-xs uppercase tracking-wider">Support</span>
+            </button>
+            <button class="amount-option" data-amount="15" type="button">
+              <span class="text-xl font-black">$15</span>
+              <span class="text-xs uppercase tracking-wider">Help</span>
+            </button>
+          </div>
+
+          <div class="rounded-2xl border border-gray-800 bg-carbon-950 p-4">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400">Custom amount</p>
+                <p id="amount-display" class="text-2xl font-black text-white">$75</p>
+              </div>
+              <span id="amount-pill" class="rounded-full bg-lemon px-3 py-2 text-xs font-bold text-carbon-950">Preset</span>
+            </div>
+            <input id="custom-amount" type="range" min="0" max="1500" step="5" value="75">
+            <div class="flex items-center justify-between text-xs text-gray-400 mt-4">
+              <span>$0</span>
+              <span>$1,500</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-gray-800 bg-carbon-950 p-4 mt-4">
+            <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">60/40 Donation Split</p>
+            <div class="split-row">
+              <span class="split-label">Shelter aid</span>
+              <span id="split-shelter" class="split-value">$45.00</span>
+            </div>
+            <div class="split-row">
+              <span class="split-label">Program funding</span>
+              <span id="split-program" class="split-value">$30.00</span>
+            </div>
+          </div>
+
+          <a id="donate-button" href="https://www.blacklemonade.org/memphis" target="_blank" rel="noopener noreferrer" class="w-full py-3 mt-4 rounded-xl bg-lemon text-carbon-950 font-black shadow-lg transition-all duration-200 text-center block">
+            Donate $75
+          </a>
+          <p class="mt-4 text-center text-xs text-gray-400">Every gift helps fund shelter, care, and hope for neighbors in need.</p>
+        </div>
+      </div>
+
+      <aside class="3x2 glass rounded-3xl p-5 border border-gray-800" aria-label="Weekly campaign roadmap">
+        <div class="week-scroll-panel__header">Weekly Plan</div>
+        <div class="week-accordion">
+          <div class="week-item week-item--panel">
+            <div class="week-panel-title">Week 1</div>
+            <div class="week-panel-content">
+              <p class="mb-3">My Professional Identity and Credentials:</p>
+              <div class="week-initiative">
+                <h3>Credentials:</h3>
+                <a href="https://docs.google.com/document/d/1bUPXNQWXw16rFZnyxmxcea7tXyW3csj3MgPnf64bDeA/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="block w-full py-2 px-3 mt-1 rounded-xl bg-lemon text-carbon-950 font-black text-center text-[10px] uppercase tracking-wider shadow transition duration-200 hover:scale-[1.02] active:scale-[0.98]">
+                  Professional Resume
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="week-item week-item--panel">
+            <div class="week-panel-title">Week 2</div>
+            <div class="week-panel-content">
+              <p class="mb-3">Active Campaign Brand Themes</p>
+              <div class="week-initiative">
+                <h3>Campaign Brand Kit</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+                  <!-- Primary Yellow -->
+                  <div style="background-color: #feb918; color: #0a0a0a; border-radius: 0.75rem; padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 4.5rem; border: 1px solid rgba(255,255,255,0.15);">
+                    <span style="font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.85;">Primary Yellow</span>
+                    <span style="font-size: 0.65rem; font-family: monospace; font-weight: 900; background: rgba(0,0,0,0.08); padding: 0.15rem 0.35rem; border-radius: 0.25rem; margin-top: 0.25rem; border: 1px solid rgba(0,0,0,0.1);">#FEB918</span>
+                  </div>
+                  <!-- Primary Orange -->
+                  <div style="background-color: #fd8f18; color: #0a0a0a; border-radius: 0.75rem; padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 4.5rem; border: 1px solid rgba(255,255,255,0.15);">
+                    <span style="font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.85;">Primary Orange</span>
+                    <span style="font-size: 0.65rem; font-family: monospace; font-weight: 900; background: rgba(0,0,0,0.08); padding: 0.15rem 0.35rem; border-radius: 0.25rem; margin-top: 0.25rem; border: 1px solid rgba(0,0,0,0.1);">#FD8F18</span>
+                  </div>
+                  <!-- Accent Red -->
+                  <div style="background-color: #812c2c; color: #fefbec; border-radius: 0.75rem; padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 4.5rem; border: 1px solid rgba(255,255,255,0.15);">
+                    <span style="font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.85;">Accent Red</span>
+                    <span style="font-size: 0.65rem; font-family: monospace; font-weight: 900; background: rgba(255,255,255,0.1); padding: 0.15rem 0.35rem; border-radius: 0.25rem; margin-top: 0.25rem; border: 1px solid rgba(255,255,255,0.15);">#812C2C</span>
+                  </div>
+                  <!-- Accent Bright Orange -->
+                  <div style="background-color: #ff6b00; color: #fefbec; border-radius: 0.75rem; padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 4.5rem; border: 1px solid rgba(255,255,255,0.15);">
+                    <span style="font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.85;">Bright Orange</span>
+                    <span style="font-size: 0.65rem; font-family: monospace; font-weight: 900; background: rgba(255,255,255,0.1); padding: 0.15rem 0.35rem; border-radius: 0.25rem; margin-top: 0.25rem; border: 1px solid rgba(255,255,255,0.15);">#FF6B00</span>
+                  </div>
+                  <!-- Cream Light -->
+                  <div style="background-color: #fefbec; color: #0a0a0a; border-radius: 0.75rem; padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 4.5rem; border: 1px solid rgba(0,0,0,0.15); grid-column: span 2;">
+                    <span style="font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.85;">Cream Light</span>
+                    <span style="font-size: 0.65rem; font-family: monospace; font-weight: 900; background: rgba(0,0,0,0.06); padding: 0.15rem 0.35rem; border-radius: 0.25rem; margin-top: 0.25rem; border: 1px solid rgba(0,0,0,0.08);">#FEFBEC</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="week-item week-item--panel mb-3">
+            <div class="week-panel-title">Week 4</div>
+            <div class="week-panel-content">
+              <div class="week-initiative">
+                <h3>Campaign B-Roll</h3>
+                <div class="week-video-wrapper">
+                  <video class="week-campaign-video" controls muted loop playsinline preload="auto" style="cursor: pointer;">
+                    <source src="Campaign%20B-Roll.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <p class="week-caption">Sneak peek inside our Crosstown Concourse headquarters and community space.</p>
+              </div>
+            </div>
+          </div>
+      </aside>
+    </div>
+
+    <div class="w-full mb-8">
+      <div class="action-buttons">
+        <button class="action-button" onclick="window.open('https://www.canva.com/design/DAHMpo_uNJ4/UsQvaSApcIF9GhgFias5Eg/edit', '_blank')" type="button">Brand Representation</button>
+        <button class="action-button" onclick="window.open('https://drive.google.com/file/d/1D6xvPluHw4byYCv5xCEP6gm1vDc_zlm1/view', '_blank')" type="button">3D Product Mockup</button>
+        <button class="action-button" onclick="window.open('https://drive.google.com/file/d/1xTsslxgip6Ttr1pwdAzLfz-PAYmEYS3B/view', '_blank')" type="button">Campaign Promo Video</button>
+        <button class="action-button action-button--highlight" data-modal="split-project" type="button">60/40 Split Project</button>
+      </div>
+    </div>
+
+    <!-- Quick Statistics Highlight -->
+    <div class="w-full glass rounded-3xl p-5 mb-8 text-center border border-gray-800">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-lemon mb-3">Our Campaign Impact Target</h3>
+      <div class="grid grid-cols-2 gap-4 divide-x divide-gray-800">
+        <div>
+          <span class="block text-2xl font-black text-white">60%</span>
+          <span class="text-[10px] text-gray-400 uppercase font-medium">To Direct Shelter Aids</span>
+        </div>
+        <div>
+          <span class="block text-2xl font-black text-white">40%</span>
+          <span class="text-[10px] text-gray-400 uppercase font-medium">To Local Program Funding</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== INTERACTIVE CONTENT MODALS ==================== -->
+
+  <!-- Modal Container Backdrop -->
+  <div id="modal-container" class="fixed inset-0 bg-carbon-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    
+    <!-- Modal Card -->
+    <div class="relative w-full max-w-md bg-carbon-900 border border-gray-800 rounded-3xl p-6 shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
+      
+      <!-- Close button -->
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-carbon-800/50 p-2 rounded-full transition-colors z-20">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Scrollable content area inside Modal -->
+      <div class="overflow-y-auto pr-1 flex-grow scrollbar-thin">
+        
+        <!-- CONTENT 1: Brand Presentation -->
+        <div id="content-brand-presentation" class="hidden space-y-4">
+          <div class="flex items-center space-x-3 mb-2">
+            <div class="w-10 h-10 rounded-xl bg-lemon/10 flex items-center justify-center text-lemon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            </div>
+            <h2 class="text-xl font-bold text-white">Brand Presentation</h2>
+          </div>
+          <p class="text-sm text-gray-300">
+            Welcome to the official presentation deck layout for the Black Lemonade **lemonAID Campaign**. Our brand leverages the simplicity and optimism of lemonade to combat housing instability.
+          </p>
+          <div class="border-l-2 border-lemon pl-4 py-2 space-y-3">
+            <div>
+              <h4 class="text-xs font-bold text-lemon uppercase tracking-wider">Our Core Vision</h4>
+              <p class="text-xs text-gray-400">Restoring dignity and shelter through conscious consumerism.</p>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-lemon uppercase tracking-wider font-semibold">Visual Identity</h4>
+              <p class="text-xs text-gray-400">Bold Charcoal contrasts coupled with energetic, pure lemon accents to symbolize modern vitality and urgent action.</p>
+            </div>
+          </div>
+          <!-- Slideshow Simulator -->
+          <div class="bg-carbon-950 p-4 rounded-2xl border border-gray-800 space-y-2">
+            <span class="text-[10px] text-gray-500 uppercase tracking-widest font-mono">Slide 1 of 5</span>
+            <div class="h-32 bg-gradient-to-br from-carbon-900 to-carbon-800 border border-gray-800 rounded-xl flex items-center justify-center flex-col text-center p-3 relative overflow-hidden">
+              <div class="absolute inset-0 bg-lemon/5 animate-pulse"></div>
+              <h3 class="font-bold text-lemon text-sm mb-1">"Pouring Love, Sheltering Lives"</h3>
+              <p class="text-[11px] text-gray-400 max-w-[200px]">How clean water and housing advocacy merge to address emergency shelter limits.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENT 2: 3D Product Mockup -->
+        <div id="content-product-mockup" class="hidden space-y-4">
+          <div class="flex items-center space-x-3 mb-2">
+            <div class="w-10 h-10 rounded-xl bg-lemon/10 flex items-center justify-center text-lemon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l-7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <h2 class="text-xl font-bold text-white">3D Product Mockup</h2>
+          </div>
+          <p class="text-sm text-gray-300">
+            Previewing our limited-edition lemonAID hydration flask. 100% of proceeds fund local, secure transitional housing initiatives.
+          </p>
+          
+          <!-- Mockup Simulation Interface -->
+          <div class="bg-carbon-950 p-6 rounded-2xl border border-gray-800 flex flex-col items-center">
+            <div class="relative w-28 h-48 bg-gradient-to-b from-gray-200 via-white to-gray-300 rounded-2xl shadow-2xl flex flex-col items-center justify-between p-4 border border-white/20 transition-transform duration-500 hover:rotate-3">
+              <!-- Flask cap -->
+              <div class="w-12 h-4 bg-yellow-500 rounded-t-lg -mt-7 shadow"></div>
+              <!-- Flask logo design -->
+              <div class="text-center">
+                <span class="block text-[8px] tracking-widest text-carbon-900 font-bold uppercase">Black Lemonade</span>
+                <span class="block text-2xl font-black text-lemon tracking-tighter filter drop-shadow">lemonAID</span>
+              </div>
+              <div class="text-center">
+                <span class="text-[8px] font-bold text-gray-600 block">60/40 SPLIT PROJECT</span>
+                <span class="text-[7px] text-gray-400 block">Stainless Steel • 24oz</span>
+              </div>
+            </div>
+            <span class="text-[10px] text-gray-500 mt-4 italic">Interactivity: Drag or hover device to rotate mockup</span>
+          </div>
+        </div>
+
+        <!-- CONTENT 3: Campaign Promo Video -->
+        <div id="content-promo-video" class="hidden space-y-4">
+          <div class="flex items-center space-x-3 mb-2">
+            <div class="w-10 h-10 rounded-xl bg-lemon/10 flex items-center justify-center text-lemon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
+            </div>
+            <h2 class="text-xl font-bold text-white">Campaign Promo Video</h2>
+          </div>
+          <p class="text-sm text-gray-300">
+            Watch how a single glass of lemonade can pave paths to long-term housing solutions. Check out the storyboard and campaign film snapshot below:
+          </p>
+          
+          <!-- Mock Video Player -->
+          <div class="relative bg-black rounded-2xl overflow-hidden aspect-video border border-gray-800 flex items-center justify-center group cursor-pointer">
+            <!-- Simulated Video Thumbnail -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-60 flex flex-col justify-between p-4" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8));">
+              <span class="text-[10px] font-mono bg-lemon/20 text-lemon font-bold px-2 py-0.5 rounded-full w-max">PROMO TRAILER</span>
+              <div class="space-y-1">
+                <h4 class="text-xs font-bold text-white">"From the Streets to the Sweetness of Home"</h4>
+                <p class="text-[9px] text-gray-400">Duration: 1m 45s • Directed by Intern Team</p>
+              </div>
+            </div>
+            <div class="relative z-10 w-16 h-16 rounded-full bg-lemon text-carbon-950 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENT 4: 60/40 Split Project Calculator -->ff
+        <div id="content-split-project" class="hidden space-y-4">
+          <div class="flex items-center space-x-3 mb-2">
+            <div class="w-10 h-10 rounded-xl bg-lemon/10 flex items-center justify-center text-lemon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 11V9a2 2 0 00-2-2m2 4v4a2 2 0 104 0v-1m-4-3H9m2 0h4m6 1a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h2 class="text-xl font-bold text-white">60/40 Split Model</h2>
+          </div>
+          <p class="text-sm text-gray-300">
+            For every contribution, 60% funds physical housing/shelter kits, and 40% funds localized support programs.
+          </p>
+          <a href="https://www.blacklemonade.org/memphis" target="_blank" rel="noopener noreferrer" class="w-full py-3 bg-lemon hover:bg-lemon-600 text-carbon-950 font-bold rounded-xl shadow-lg hover:shadow-lemon/20 transition-all duration-200 text-sm text-center block">
+            Make Real Impact Now
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+	<!-- High-Contrast Choice Architecture Button Section -->
+	<div class="checkout-section">
+		<p>Help us turn lemons into lemonade. Support our service project today!</p>
+		<!-- This button redirects your users back to the official checkout page -->
+		<a href="https://www.blacklemonade.org/memphis" class="donation-button" target="_blank" rel="noopener noreferrer">
+			<i class="fa-solid fa-heart"></i> Support Our 60/40 Initiative
+		</a>
+	</div>
+	
+	<!-- Clean minimalist Footer -->
+  <footer class="relative z-10 w-full text-center py-6 border-t border-carbon-900" style="background-color: #ffffff;">
+    <p class="text-xs text-gray-500">
+      © 2026 Black Lemonade. Together for <span class="text-lemon">lemonAID</span>.
+    </p>
+  </footer>
+
+  <!-- Global Interaction Script -->
+  <script>
+    const amountButtons = document.querySelectorAll('.amount-option');
+    const customAmountInput = document.getElementById('custom-amount');
+    const amountDisplay = document.getElementById('amount-display');
+    const amountPill = document.getElementById('amount-pill');
+    const donateButton = document.getElementById('donate-button');
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeLabel = document.getElementById('theme-label');
+    const themeIcon = document.querySelector('.theme-toggle__icon');
+    const modalContainer = document.getElementById('modal-container');
+    const actionButtons = document.querySelectorAll('.action-button');
+
+    function formatAmount(value) {
+      return `$${Number(value).toLocaleString()}`;
+    }
+
+    function updateDonation(value, isCustom) {
+      const nextValue = Math.max(0, Math.min(1500, Number(value) || 0));
+      customAmountInput.value = nextValue;
+      amountDisplay.textContent = formatAmount(nextValue);
+      donateButton.textContent = `Donate ${formatAmount(nextValue)}`;
+      amountPill.textContent = isCustom ? 'Custom' : 'Preset';
+
+      amountButtons.forEach((button) => {
+        const isActive = Number(button.dataset.amount) === nextValue;
+        button.classList.toggle('active', isActive);
+      });
+
+      updateSplitCalculator(nextValue);
+    }
+
+    function updateSplitCalculator(value) {
+      const donationValue = Math.max(0, Math.min(1500, Number(value) || 0));
+      const shelterAmount = (donationValue * 0.6).toFixed(2);
+      const programAmount = (donationValue * 0.4).toFixed(2);
+
+      const shelterSplit = document.getElementById('split-shelter');
+      const programSplit = document.getElementById('split-program');
+
+      if (shelterSplit) shelterSplit.textContent = `$${shelterAmount}`;
+      if (programSplit) programSplit.textContent = `$${programAmount}`;
+    }
+
+    function openModal(contentId) {
+      const contentBlock = document.getElementById(`content-${contentId}`);
+      if (!contentBlock) return;
+
+      document.getElementById('content-brand-presentation').classList.add('hidden');
+      document.getElementById('content-product-mockup').classList.add('hidden');
+      document.getElementById('content-promo-video').classList.add('hidden');
+      document.getElementById('content-split-project').classList.add('hidden');
+
+      contentBlock.classList.remove('hidden');
+      modalContainer.classList.remove('pointer-events-none', 'opacity-0');
+      modalContainer.classList.add('opacity-100');
+      updateSplitCalculator(customAmountInput.value);
+    }
+
+    function closeModal() {
+      modalContainer.classList.add('opacity-0', 'pointer-events-none');
+      modalContainer.classList.remove('opacity-100');
+    }
+
+    function copyProfileLink() {
+      const url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url);
+      } else if (document.execCommand) {
+        const tempInput = document.createElement('input');
+        tempInput.value = url;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+      }
+    }
+
+    amountButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        updateDonation(button.dataset.amount, false);
+      });
+    });
+
+    customAmountInput.addEventListener('input', () => {
+      updateDonation(customAmountInput.value, true);
+    });
+
+    actionButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        openModal(button.dataset.modal);
+      });
+    });
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('theme-light');
+      const isLight = document.body.classList.contains('theme-light');
+      themeLabel.textContent = isLight ? 'Light' : 'Dark';
+      themeIcon.textContent = isLight ? '☀️' : '🌙';
+      themeToggle.setAttribute('aria-pressed', String(isLight));
+    });
+
+    document.querySelectorAll('.week-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const item = toggle.closest('.week-item');
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.week-item').forEach((entry) => {
+          entry.classList.remove('active');
+          const icon = entry.querySelector('.week-toggle__icon');
+          if (icon) icon.textContent = '+';
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          const icon = item.querySelector('.week-toggle__icon');
+          if (icon) icon.textContent = '−';
+        }
+      });
+    });
+
+    window.onclick = function(event) {
+      if (event.target === modalContainer) {
+        closeModal();
+      }
+    };
+
+    updateDonation(75, false);
+  </script>
+</body>
+</html>
